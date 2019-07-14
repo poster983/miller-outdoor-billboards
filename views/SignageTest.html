@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <style>
+            body {
+                color: white;
+                background: black;
+            }
+        </style>
+    </head>
+    <body>
+
+        <h1>Last Loaded:</h1>
+        <p id="time"></p>
+        <h1>User-Agent:</h1>
+        <p id="ua"></p>
+        <h2>Server Time:</h2>
+        <p>{{serverTime}}</p>
+        <script>
+            let time = new Date();
+            let timeElm = document.getElementById("time");
+            timeElm.innerHTML = time.toISOString();
+            document.getElementById("ua").innerHTML = navigator.userAgent;
+        </script>
+    </body>
+</html>

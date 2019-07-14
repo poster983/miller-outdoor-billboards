@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <title></title>
+    <!--<link rel = "stylesheet" type = "text/css" href = "./skeleton.css" />-->
+    <link rel = "stylesheet" type = "text/css" href = "./styles/billboard.css" />
+    <link rel = "stylesheet" type = "text/css" href = "./styles/weather.css" />
+  </head>
+  <body>
+    
+    <div class="background"></div>
+    
+    <main>
+      <img class="miller-logo" id="miller-logo" src="https://cdn.glitch.com/5c8c162b-8d86-40fd-abe0-a4ee24aa3ff1%2FMiller-Logo-2019.png?v=1563049687175">
+      {{#darksky.alerts.length}}
+      <div class="alerts-card" id="alerts-card">
+        <h1>
+          NOAA ALERTS
+        </h1>
+        {{#darksky.alerts}}
+        <p>{{title}}</p>
+        {{/darksky.alerts}}
+        <img class="qr-code" src="https://cdn.glitch.com/5c8c162b-8d86-40fd-abe0-a4ee24aa3ff1%2Fmiller%20qrcode.png?v=1563141630374">
+        <h6>Scan For More</h6>
+      </div>
+      {{/darksky.alerts.length}}
+      <div class="weather-card">
+        <h1 style="margin-bottom: 5px;">Current Weather</h1>
+        
+        <canvas id="skycon" class="skycon" width="128" height="128"></canvas>
+        
+        <h2 style="margin-bottom: 0px;">{{format.currently.temperature}}° - {{darksky.currently.summary}}</h2>
+        
+        <p>{{darksky.minutely.summary}}</p>
+        
+        <p>
+          <b>Wind:</b> {{format.currently.wind}}
+          &nbsp; | &nbsp;
+          <b>UV Index:</b> {{format.currently.uvIndex}}
+        </p>
+        <hr>
+        <h2>Later</h2>
+        <p>{{darksky.hourly.summary}}</p>
+      </div>
+      
+      <img class="darksky-logo" src="https://cdn.glitch.com/5c8c162b-8d86-40fd-abe0-a4ee24aa3ff1%2Fimage.png?v=1563061148972">
+    </main>
+    <script src="./js/skycons.js"></script>
+    <script src="./js/weather.js"></script>
+    <script>
+    setSkycon("{{darksky.currently.icon}}"); 
+    </script>
+  </body>
+</html>
