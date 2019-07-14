@@ -1,27 +1,17 @@
-Welcome to Glitch
-=================
+# miller-outdoor-billboards
 
-Click `Show` in the header to see your app live. Updates to your code will instantly deploy and update live.
+A web page to show up at Miller Outdoor Theater's billboards in Houston, TX
 
-**Glitch** is the friendly community where you'll build the app of your dreams. Glitch lets you instantly create, remix, edit, and host an app, bot or site, and you can invite collaborators or helpers to simultaneously edit code with you.
+## Usage
 
-Find out more [about Glitch](https://glitch.com/about).
+1. Install Yarn Or NPM and NodeJS  
+2. Clone this REPO 
+3. Register a dev account at [darksky.net/dev](https://darksky.net/dev)  
+3. Create a .env file following the file ".env.example" and put your dark sky api key in there
+4. Run `yarn install` or `npm install`
+5. Run `yarn start` or `npm start`
 
+The 2 pages are `/weather` and `/radar`
 
-Your Project
-------------
+See a demo [here](https://miller-outdoor-billboards.glitch.me/weather)
 
-On the front-end,
-- edit `public/client.js`, `public/style.css` and `views/index.html`
-- drag in `assets`, like images or music, to add them to your project
-
-On the back-end,
-- your app starts at `server.js`
-- add frameworks and packages in `package.json`
-- safely store app secrets in `.env` (nobody can see this but you and people you invite)
-
-
-Made by [Glitch](https://glitch.com/)
--------------------
-
-\ ゜o゜)ノ

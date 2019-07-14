@@ -8,6 +8,7 @@ const axios = require('axios');
 const mustacheExpress = require('mustache-express');
 const { DateTime } = require("luxon");
 const mockData = require("./darksky-mock-data.json");
+require('dotenv').config();
 
 // Register '.mustache' extension with The Mustache Express
 app.engine('html', mustacheExpress());
