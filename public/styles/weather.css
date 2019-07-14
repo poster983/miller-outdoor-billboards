@@ -1,0 +1,114 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  background-color: black;
+}
+
+h2 {
+  margin-bottom: 0px;
+}
+p {
+  margin-top: 10px;
+}
+
+
+div.background {
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('https://cdn.glitch.com/5c8c162b-8d86-40fd-abe0-a4ee24aa3ff1%2Fsebastian-unrau-CoD2Q92UaEg-unsplash.jpg?v=1563064448190');
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  position: absolute; 
+  top: 0; 
+  left: 0;
+  background-position:center;
+  background-size: cover;
+}
+/*svg.background {
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  position: absolute; 
+  top: 0; 
+  left: 0;
+  min-height: 100%;
+  transform: scale(1.1);
+  box-shadow: 0px 0px 1px 5000px rgba(0,0,0,0.8);
+}
+div.background {
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  position: absolute; 
+  top: 0; 
+  left: 0;
+  background-color: rgba(0,0,0,0.5);
+}*/
+
+.weather-card {
+  border-radius: 5px;
+  margin: 0px 30px 0px 0px;
+  color: white;
+  padding: 10px;
+  right: 0px;
+  top: 0px;
+  position: absolute;
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.alerts-card {
+  background-color: red;
+  color: white;
+  left: 0px;
+  top: 0px;
+  position: absolute;
+  width: 0px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  filter: drop-shadow(0 0 0.75rem red);
+}
+
+.miller-logo {
+  height: 100%;
+  width: auto;
+  filter: drop-shadow(0 0 0.75rem green);
+}
+hr {
+  margin: 5px 0;
+  width: 100%;
+  border: 1px solid rgba(255,255,255,0.5);
+}
+.skycon {
+  /*border-radius: 50%;
+  border-style: solid;
+  border-width: 5px;
+  border-color: white;
+  background-color: rgba(0,0,0,0.5);*/
+  height: 180px;
+  width: 180px;
+  /*padding: 10px;*/
+}
+
+.darksky-logo {
+  position: absolute;
+  width: 120px;
+  bottom: 0px;
+  right: 0px;
+  padding: 10px
+  
+}
+
+.qr-code{
+  border-radius: 30px;
+  border-style: solid;
+  border-color: black;
+  border-width: 10px;
+  margin: 40px 40px 0px 40px;
+}
