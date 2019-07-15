@@ -117,7 +117,7 @@ app.get('/radar', function(request, response) {
       .then((data) => {
         console.log(darkSkyCache.lastUpdated.toISO())
         console.log(data.currently.nearestStormDistance)
-        if(data.currently.nearestStormDistance <= 30) { // if the nearest storm is within 50 miles, then show radar
+        if(data.currently.nearestStormDistance <= 15) { // if the nearest storm is within 15 miles, then show radar
           return response.render('radar', {
           })
         } else { // show weather
