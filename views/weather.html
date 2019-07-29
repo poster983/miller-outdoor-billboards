@@ -7,10 +7,10 @@
   </head>
   <body>
     
-    <div class="background"></div>
+    <div class="background" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('{{images.background}}'); background-position: center; background-size: cover;"></div>
     
     <main>
-      <img class="miller-logo" id="miller-logo" src="https://cdn.glitch.com/5c8c162b-8d86-40fd-abe0-a4ee24aa3ff1%2FMiller-Logo-2019.png?v=1563049687175">
+      <img class="miller-logo" id="miller-logo" src="{{images.logo}}">
       {{#darksky.alerts.length}}
       <div class="alerts-card" id="alerts-card">
         <h1>
@@ -19,7 +19,7 @@
         {{#darksky.alerts}}
         <p>{{title}}</p>
         {{/darksky.alerts}}
-        <img class="qr-code" src="https://miller-outdoor-billboards.glitch.me/alerts/qr.png">
+        <img class="qr-code" src="./alerts/qr.png">
         <h6>Scan For More</h6>
       </div>
       {{/darksky.alerts.length}}
@@ -42,7 +42,7 @@
         <p>{{darksky.hourly.summary}}</p>
       </div>
       
-      <img class="darksky-logo" src="https://cdn.glitch.com/5c8c162b-8d86-40fd-abe0-a4ee24aa3ff1%2Fimage.png?v=1563061148972">
+      <img class="darksky-logo" src="https://darksky.net/dev/img/attribution/poweredby-darkbackground.png">
     </main>
     <script src="./js/skycons.js"></script>
     <script src="./js/weather.js"></script>

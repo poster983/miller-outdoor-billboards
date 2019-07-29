@@ -22,21 +22,18 @@ app.set('views', __dirname + '/views');
 app.use(cookieParser());
 
 
-// we've started you off with Express, 
-// but feel free to use whatever libs or frameworks you'd like through `package.json`.
 
-// http://expressjs.com/en/starter/static-files.html
 app.use(express.static('public'));
 
 let darkSkyCache = {
   lastUpdated: null, 
-  data: {} //
+  data: mockData //
 };
 
 let queryDarksky = () => { //Update dark sky
   return new Promise((resolve, reject) => {
     if(!darkSkyCache.lastUpdated || darkSkyCache.lastUpdated.plus({minutes: 5}) < DateTime.utc()) {
-    axios.get(`https://api.darksky.net/forecast/${process.env.DARKSKY_APIKEY}/29.7193,-95.388`)
+    axios.get(`https://api.darksky.net/forecast/${process.env.DARKSKY_APIKEY}/${process.env.DARKSKY_LAT},${process.env.DARKSKY_LONG}`)
       .then(res => {
         //console.log(res.data);
 
@@ -65,6 +62,10 @@ app.get('/weather', function(request, response) {
   function respond() {
     response.render('weather', {
         darksky: darkSkyCache.data,
+        images: {
+          logo: process.env.LOGO_URL,
+          background: process.env.BACKGROUND_URL
+        },
         format: {
           currently: {
             temperature: function() {

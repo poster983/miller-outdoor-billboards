@@ -1,10 +1,16 @@
 <html>
+  <head>
+    <link rel = "stylesheet" type = "text/css" href = "./styles/billboard.css" />
+    <link rel = "stylesheet" type = "text/css" href = "./styles/radar.css" />
+  </head>
   <body style="margin: 0px; height: 100%; overflow: hidden;">
     <main style="left: 0px; right: 0px; position: absolute; height: 100%;">
      <!--<script src="https://darksky.net/map-embed/@radar,29.772,-95.322,11.js?embed=true&timeControl=false&fieldControl=false&defaultField=radar"></script>-->
       <iframe style="transform: scale(1.1);" src="https://maps.darksky.net/@radar,29.772,-95.322,10?marker=29.719,-95.388&marker-name=Miller%20Outdoor%20Theater&domain=https%3A%2F%2Fmiller-outdoor-billboards.glitch.me%2Fradar&auth=1563047958_ccaa498e05db7d1d95296b4fe5102bd0&embed=true&timeControl=false&fieldControl=false&defaultField=radar" width="100%" height="100%">
         
       </iframe>
+      <img class="qr-code" src="./alerts/qr.png">
+      <img class="darksky-logo" src="https://darksky.net/dev/img/attribution/poweredby.png">
     </main>
   </body>
 </html>
