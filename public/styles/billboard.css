@@ -23,3 +23,13 @@ h6 {
   font-size: 1em;
   font-family: 'Roboto', sans-serif;
 }
+
+.darksky-logo {
+  position: absolute;
+  width: 120px;
+  bottom: 0px;
+  right: 0px;
+  padding: 10px;
+  z-index: 1;
+  
+}

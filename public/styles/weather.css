@@ -13,7 +13,6 @@ p {
 
 
 div.background {
-  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('https://cdn.glitch.com/5c8c162b-8d86-40fd-abe0-a4ee24aa3ff1%2Fsebastian-unrau-CoD2Q92UaEg-unsplash.jpg?v=1563064448190');
   width: 100%;
   height: 100%;
   z-index: -2;
@@ -96,14 +95,7 @@ hr {
   /*padding: 10px;*/
 }
 
-.darksky-logo {
-  position: absolute;
-  width: 120px;
-  bottom: 0px;
-  right: 0px;
-  padding: 10px
-  
-}
+
 
 .qr-code{
   border-radius: 30px;
