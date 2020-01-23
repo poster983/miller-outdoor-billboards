@@ -35,8 +35,21 @@ let queryDarksky = () => { //Update dark sky
     if(!darkSkyCache.lastUpdated || darkSkyCache.lastUpdated.plus({minutes: 5}) < DateTime.utc()) {
     axios.get(`https://api.darksky.net/forecast/${process.env.DARKSKY_APIKEY}/${process.env.DARKSKY_LAT},${process.env.DARKSKY_LONG}`)
       .then(res => {
-        //console.log(res.data);
-
+        //console.log(res.data);   
+        
+        //limit the number of alerts and filter out dupes 
+        if (res.data.alerts) {
+          let alertSet = new Set();
+          res.data.alerts = res.data.alerts.filter(v => { 
+            if (alertSet.has(v.title)) {
+                return false
+            } else {
+                alertSet.add(v.title);
+                return true;
+            }
+          });
+        }
+      
         //Cashe
         darkSkyCache.data = res.data;
         darkSkyCache.lastUpdated = DateTime.utc();
