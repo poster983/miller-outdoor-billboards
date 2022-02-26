@@ -8,6 +8,7 @@ const axios = require('axios');
 const mustacheExpress = require('mustache-express');
 const { DateTime } = require("luxon");
 const mockData = require("./darksky-mock-data.json");
+const owmMockData = require("./owm-mock-data.json");
 const uuid = require('uuid/v4');
 const cookieParser = require('cookie-parser');
 const QRCode = require('qrcode')
@@ -30,10 +31,38 @@ let darkSkyCache = {
   data: mockData //
 };
 
+let owmCache = {
+  lastUpdated: null, 
+  data: owmMockData
+}
+
+let queryOWM = () => { 
+  return new Promise((resolve, reject) => {
+    if(!owmCache.lastUpdated || owmCache.lastUpdated.plus({minutes: 5}) < DateTime.utc()) {
+    axios.get(`https://api.openweathermap.org/data/2.5/onecall?appid=${process.env.OWM_APIKEY}?lat=${process.env.LAT}?lon=${process.env.LONG}`)
+      .then(res => {
+      
+      //let 
+      
+      
+      
+      
+      
+      owmCache.data = res;
+      owmCache.lastUpdated = DateTime.utc();
+    }).catch(err => {
+        return reject(err);
+        console.error(err);
+        
+      })
+    }
+  })
+}
+
 let queryDarksky = () => { //Update dark sky
   return new Promise((resolve, reject) => {
     if(!darkSkyCache.lastUpdated || darkSkyCache.lastUpdated.plus({minutes: 5}) < DateTime.utc()) {
-    axios.get(`https://api.darksky.net/forecast/${process.env.DARKSKY_APIKEY}/${process.env.DARKSKY_LAT},${process.env.DARKSKY_LONG}`)
+    axios.get(`https://api.darksky.net/forecast/${process.env.DARKSKY_APIKEY}/${process.env.LAT},${process.env.LONG}`)
       .then(res => {
         //console.log(res.data);   
         
@@ -67,6 +96,9 @@ let queryDarksky = () => { //Update dark sky
   })
 }
 
+app.get('/', function(request, response) {
+    response.redirect("/weather");
+})
 
 // http://expressjs.com/en/starter/basic-routing.html
 app.get('/weather', function(request, response) {
